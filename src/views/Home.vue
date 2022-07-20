@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="text-center bg">
     <div style="position: relative; top: 40vh">
       <b-img center src="/ngmusiclogo.png" alt="Center image" height="83.8" width="72.2"></b-img>
     </div>
@@ -17,7 +17,7 @@
       <b-row>
         <b-col cols="2"> </b-col>
         <b-col cols="8">
-          <b-button pill block class="searchs">Search</b-button>
+          <b-button pill block class="searchs" @click="toList">Search</b-button>
         </b-col>
         <b-col cols="2"> </b-col>
       </b-row>
@@ -32,12 +32,17 @@ export default {
     return {
       text: ""
     }
+  },
+  methods: {
+    toList() {
+      this.$router.push("list")
+    }
   }
 }
 </script>
 
-<style>
-body {
+<style scoped>
+.bg {
   font-family: "Roboto", sans-serif;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

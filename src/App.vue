@@ -1,14 +1,25 @@
 <template>
-  <div id="app">
-    <Home />
+  <div id="app" :class="vueAppClasses">
+    <router-view @setAppClasses="setAppClasses" :key="$route.path" />
   </div>
 </template>
 
 <script>
-import Home from "./Home"
+import Home from "./views/Home"
+import List from "./views/List"
 export default {
   name: "App",
-  components: { Home }
+  components: { Home, List },
+  data() {
+    return {
+      vueAppClasses: []
+    }
+  },
+  methods: {
+    setAppClasses(classesStr) {
+      this.vueAppClasses.push(classesStr)
+    }
+  }
 }
 </script>
 
